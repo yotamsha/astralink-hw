@@ -5,20 +5,13 @@ import Auth from '../modules/Auth';
 
 const Base = ({ children }) => (
   <div>
-    <div className="top-bar">
+    <div className="top-nav-bar">
 
       <div className="top-bar-left">
+        <Link to="/">Home</Link> 
+
+        <Link to="/draw">Create Your Own Drawing</Link>
       </div>
-      {Auth.isUserAuthenticated() ? (
-        <div className="top-bar-right">
-
-          <Link to="/logout">Log out</Link>
-        </div>
-      ) : (
-        <div className="top-bar-right">
-        </div>
-      )}
-
     </div>
     <div className="page-container">
       { /* child component will be rendered here */ }

@@ -14,6 +14,21 @@ class Drawing {
 
   }
 
+  static save(data){
+    if (data.id){ // ID exists,
+      return axios.put(BASE_SERVER_URL + MODEL_PATH + '/' + data.id, data)
+        .then(res => {
+          return res.data;
+        });
+    } else { // no ID, create a new object.
+      return axios.post(BASE_SERVER_URL + MODEL_PATH, data)
+        .then(res => {
+          return res.data;
+        });
+    }
+
+
+  }
 
 }
 

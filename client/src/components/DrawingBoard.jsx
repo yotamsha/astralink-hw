@@ -12,34 +12,27 @@ class DrawingBoard extends React.Component {
 
   componentDidMount() {
     let stage = this.refs.stage.getStage();
-    let width = window.innerWidth - 50;
+/*    let width = window.innerWidth - 50;
     let height = window.innerWidth / 2;
     // this.bindEvents(stage); // move this to page level
     // this.parentNode.clientWidth
 
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
+    this.props.onReady(stage);*/
     this.props.onReady(stage);
-
   }
 
   updateDimensions() {
     //this.setState({width: window.innerWidth, height: window.innerWidth / 2});
   }
 
-  bindEvents(stage) {
-    let elm = this;
-    stage.on('contentMousedown.proto', function() {
-      elm.props.onMouseDown(stage);
-    });
-    stage.on('contentMousemove.proto', function() {
-      elm.props.onMouseMove(stage);
-    });
-  }
-
   render() {
     return   (
-      <Stage className="drawing-board" ref="stage" width={window.innerWidth} height={window.innerWidth / 2}/>
+      <div>
+        <button onClick={this.props.onSave}>Save</button>
+        <Stage className="drawing-board" ref="stage" width={window.innerWidth} height={window.innerWidth / 2}/>
+      </div>
     );
   }
 }
@@ -47,6 +40,7 @@ class DrawingBoard extends React.Component {
 
 DrawingBoard.propTypes = {
   onReady: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
 /*  onMouseDown: PropTypes.func.isRequired,
   onMouseMove: PropTypes.func.isRequired,
   onMouseUp: PropTypes.func.isRequired*/

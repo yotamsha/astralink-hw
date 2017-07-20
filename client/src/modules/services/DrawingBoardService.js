@@ -1,26 +1,25 @@
-let _layer, _context, _lastPointerPosition, _isPaint, _canvas;
 
 class DrawingBoardService {
 
   constructor(stage) {
     console.log("initializing service");
 
-    _layer = new Konva.Layer();
-    stage.add(_layer);
-    _canvas = document.createElement('canvas');
-    _canvas.width = stage.width();
-    _canvas.height = stage.height();
-    var context = _canvas.getContext('2d');
+    this._layer = new Konva.Layer();
+    stage.add(this._layer);
+    this._canvas = document.createElement('canvas');
+    this._canvas.width = stage.width();
+    this._canvas.height = stage.height();
+    var context = this._canvas.getContext('2d');
     context.strokeStyle = "#df4b26";
     context.lineJoin = "round";
     context.lineWidth = 5;
-    _context = context;
+    this._context = context;
     var image = new Konva.Image({
-      image: _canvas,
+      image: this._canvas,
       x: 0,
       y: 0
     });
-    _layer.add(image);
+    this._layer.add(image);
     stage.draw();
 
     this.bindEvents(stage)
@@ -43,43 +42,47 @@ class DrawingBoardService {
 
   onMouseDown(stage) {
     console.log("mousedown: ", stage.getPointerPosition());
-    _lastPointerPosition = stage.getPointerPosition();
-    _isPaint = true;
+    this._lastPointerPosition = stage.getPointerPosition();
+    this._isPaint = true;
   }
 
   onMouseUp(stage) {
     console.log("onMouseUp: ", stage.getPointerPosition());
-    _isPaint = false;
-    var dataURL = _canvas.toDataURL();
-    // console.log("dataURL: ", dataURL);
+    this._isPaint = false;
+    this.dataURL = this._canvas.toDataURL();
 
   }
 
   onMouseMove(stage) {
     // console.log("onMouseMove: ", stage.getPointerPosition());
-    if (!_isPaint) {
+    if (!this._isPaint) {
       return;
     }
-    _context.globalCompositeOperation = 'source-over';
+    this._context.globalCompositeOperation = 'source-over';
 
-    _context.beginPath();
+    this._context.beginPath();
     let localPos = {
-      x: _lastPointerPosition.x,
-      y: _lastPointerPosition.y
+      x: this._lastPointerPosition.x,
+      y: this._lastPointerPosition.y
     };
-    _context.moveTo(localPos.x, localPos.y);
+    this._context.moveTo(localPos.x, localPos.y);
     let pos = stage.getPointerPosition();
     localPos = {
       x: pos.x,
       y: pos.y
     };
-    _context.lineTo(localPos.x, localPos.y);
-    _context.closePath();
-    _context.stroke();
-    _lastPointerPosition = pos;
-    _layer.draw();
+    this._context.lineTo(localPos.x, localPos.y);
+    this._context.closePath();
+    this._context.stroke();
+    this._lastPointerPosition = pos;
+    this._layer.draw();
   }
 
+  getDrawingData() {
+    return {
+      image: this._canvas.toDataURL()
+    }
+  }
 
 }
 
