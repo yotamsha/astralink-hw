@@ -1,9 +1,7 @@
 import Base from './components/Base.jsx';
 import BaseContainer from './containers/BaseContainer.jsx';
-import DashboardPage from './containers/DashboardPage.jsx';
-import LoginPage from './containers/LoginPage.jsx';
-import SignUpPage from './containers/SignUpPage.jsx';
 import DrawingBoardPage from './containers/DrawingBoardPage.jsx';
+import DrawingsListPage from './containers/DrawingsListPage.jsx';
 import Auth from './modules/Auth';
 
 
@@ -20,20 +18,11 @@ const routes = {
         } else {
           callback(null, LoginPage);
         }*/
-        callback(null, DrawingBoardPage);
+        callback(null, DrawingsListPage);
 
       }
     },
 
-    {
-      path: '/login',
-      component: LoginPage
-    },
-
-    {
-      path: '/signup',
-      component: SignUpPage
-    },
     {
       path: '/draw',
       component: DrawingBoardPage

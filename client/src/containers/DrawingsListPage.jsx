@@ -1,16 +1,17 @@
 import React from 'react';
-import Base from '../components/Base.jsx';
+import Drawing from '../modules/models/Drawing';
+import DrawingsList from '../components/DrawingsList.jsx';
 
-
-class BaseContainer extends React.Component {
+class DrawingsListPage extends React.Component {
 
   /**
    * Class constructor.
    */
   constructor(props) {
     super(props);
+
     this.state = {
-      user: {}
+      drawings: {},
     };
     this.componentDidMount = this.componentDidMount.bind(this);
 
@@ -21,25 +22,20 @@ class BaseContainer extends React.Component {
    */
   componentDidMount() {
     var _this = this;
-/*    User.getInfo().then(function (data) {
-      if (data){
-        _this.setState({
-          user: data.user
-        });
-      }
-
-    });*/
+    Drawing.getAll().then(function (data) {
+      _this.setState({
+        drawings: data
+      });
+    });
   }
 
   /**
    * Render the component.
    */
   render() {
-    return (<Base
-      children={this.props.children}
-      />);
+    return (<DrawingsList className="drawings-list-page" />);
   }
 
 }
 
-export default BaseContainer;
+export default DrawingsListPage;

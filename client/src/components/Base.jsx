@@ -3,7 +3,7 @@ import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
 
 
-const Base = ({ children, user }) => (
+const Base = ({ children }) => (
   <div>
     <div className="top-bar">
 
@@ -11,7 +11,7 @@ const Base = ({ children, user }) => (
       </div>
       {Auth.isUserAuthenticated() ? (
         <div className="top-bar-right">
-          
+
           <Link to="/logout">Log out</Link>
         </div>
       ) : (
@@ -28,8 +28,7 @@ const Base = ({ children, user }) => (
 );
 
 Base.propTypes = {
-  children: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired
 };
 
 export default Base;
