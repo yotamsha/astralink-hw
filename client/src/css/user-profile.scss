@@ -1,0 +1,22 @@
+.user-profile-container {
+  top:100px;
+  min-height: 400px;
+  .draggable-item {
+    cursor: move;
+  }
+  .full-name-text {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    font-size: 45px;
+    color: #ffffff;
+  }
+  .profile-image {
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    position: absolute;
+    border-radius: 50%;
+
+  }
+}

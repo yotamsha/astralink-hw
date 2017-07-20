@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  background-image: url("../img/back2.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif; }
+
+a {
+  color: #00bcd4;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.4s; }
+
+a:hover {
+  color: #1976d2; }
+
+.text-center {
+  text-align: center; }
+
+.top-bar {
+  padding: 10px 15px;
+  margin-bottom: 50px; }
+
+.top-bar::after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.top-bar-left {
+  float: left;
+  font-size: 1.5em; }
+
+.top-bar-right {
+  float: right; }
+
+.top-bar a,
+.nav a {
+  margin: 0 8px; }
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.form-container {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 3px; }
+  .form-container input {
+    height: 35px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.43);
+    border: 0px;
+    color: #ffffff;
+    padding-left: 10px;
+    font-size: 18px; }
+
+.card-heading {
+  padding: 16px; }
+
+.field-line, .button-line {
+  padding: 16px; }
+
+.error-message {
+  padding: 0 16px;
+  color: tomato; }
+
+.success-message {
+  padding: 0 16px;
+  color: green; }
+
+/*# sourceMappingURL=base.css.map */
