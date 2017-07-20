@@ -1,0 +1,45 @@
+@import "responsive";
+
+.drawings-list-page {
+
+  .drawings-list {
+    ul {
+      margin: 0;
+      list-style-type: none;
+      padding: 0;
+      .list-item {
+        width: 33.33%;
+        padding: 15px;
+        float: left;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+
+        &:hover {
+          opacity: 1 !important; /* must be important because of the dynamically generated opacity.*/
+          box-shadow: 4px 7px 4px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+          transform: scale(1.02);
+        }
+        background-color: #ffffff;
+        .drawing-preview {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+  @include media-max($layout-breakpoint-sm) {
+    .drawings-list {
+      ul {
+        .list-item {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+

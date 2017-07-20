@@ -20,9 +20,10 @@ const Base = ({ children }) => (
       )}
 
     </div>
-
-    { /* child component will be rendered here */ }
-    {children}
+    <div className="page-container">
+      { /* child component will be rendered here */ }
+      {children}
+    </div>
 
   </div>
 );

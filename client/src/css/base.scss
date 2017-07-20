@@ -1,7 +1,15 @@
+@import "responsive";
+@import "variables";
 body {
   margin: 0;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-color: $back-color;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -71,20 +79,19 @@ a:hover {
   }
 }
 
-.card-heading {
-  padding: 16px;
+.page-container {
+  width: 1024px;
+  margin: auto;
 }
-
-.field-line, .button-line {
-  padding: 16px;
+@include media-max($layout-breakpoint-md) {
+  .page-container {
+    width: 700px;
+    margin: auto;
+  }
 }
-
-.error-message {
-  padding: 0 16px;
-  color: tomato;
-}
-
-.success-message {
-  padding: 0 16px;
-  color: green;
+@include media-max($layout-breakpoint-sm) {
+  .page-container {
+    width: 100%;
+    margin: auto;
+  }
 }

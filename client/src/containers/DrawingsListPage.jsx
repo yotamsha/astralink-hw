@@ -11,7 +11,7 @@ class DrawingsListPage extends React.Component {
     super(props);
 
     this.state = {
-      drawings: {},
+      drawings: [],
     };
     this.componentDidMount = this.componentDidMount.bind(this);
 
@@ -23,6 +23,7 @@ class DrawingsListPage extends React.Component {
   componentDidMount() {
     var _this = this;
     Drawing.getAll().then(function (data) {
+      console.log("drawings: " ,data);
       _this.setState({
         drawings: data
       });
@@ -33,7 +34,11 @@ class DrawingsListPage extends React.Component {
    * Render the component.
    */
   render() {
-    return (<DrawingsList className="drawings-list-page" />);
+    return (<div className="drawings-list-page">
+      <DrawingsList
+        drawings={this.state.drawings}
+      />
+    </div>);
   }
 
 }

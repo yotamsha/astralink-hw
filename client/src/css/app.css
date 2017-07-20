@@ -1,7 +1,18 @@
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
 body {
   margin: 0;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  background-color: #c1daf7; }
+
+* {
+  box-sizing: border-box; }
 
 a {
   color: #00bcd4;
@@ -59,20 +70,21 @@ a:hover {
     padding-left: 10px;
     font-size: 18px; }
 
-.card-heading {
-  padding: 16px; }
+.page-container {
+  width: 1024px;
+  margin: auto; }
 
-.field-line, .button-line {
-  padding: 16px; }
-
-.error-message {
-  padding: 0 16px;
-  color: tomato; }
-
-.success-message {
-  padding: 0 16px;
-  color: green; }
-
+@media (max-width: 991px) {
+  .page-container {
+    width: 700px;
+    margin: auto; } }
+@media (max-width: 767px) {
+  .page-container {
+    width: 100%;
+    margin: auto; } }
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
 .user-profile-container {
   top: 100px;
   min-height: 400px; }
@@ -93,5 +105,34 @@ a:hover {
 
 .drawing-board-page .drawing-board {
   border: 1px solid #000000; }
+
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
+.drawings-list-page .drawings-list ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0; }
+  .drawings-list-page .drawings-list ul .list-item {
+    width: 33.33%;
+    padding: 15px;
+    float: left;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    background-color: #ffffff; }
+    .drawings-list-page .drawings-list ul .list-item:hover {
+      opacity: 1 !important;
+      /* must be important because of the dynamically generated opacity.*/
+      box-shadow: 4px 7px 4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      transform: scale(1.02); }
+    .drawings-list-page .drawings-list ul .list-item .drawing-preview {
+      width: 100%; }
+@media (max-width: 767px) {
+  .drawings-list-page .drawings-list ul .list-item {
+    width: 100%; } }
 
 /*# sourceMappingURL=app.css.map */
