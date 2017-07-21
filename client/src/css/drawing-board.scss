@@ -1,5 +1,13 @@
+@import "responsive";
 .drawing-board-page {
   .drawing-board {
-    border: 1px solid #000000;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+  @include media-max($layout-breakpoint-sm) {
+    .drawing-board {
+      margin: 0 25px;
+    }
   }
 }
+

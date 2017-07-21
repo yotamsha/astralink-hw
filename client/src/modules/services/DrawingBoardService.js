@@ -1,7 +1,7 @@
 
 class DrawingBoardService {
 
-  constructor(stage) {
+  constructor(stage, paintProps) {
     console.log("initializing service");
 
     this._layer = new Konva.Layer();
@@ -10,9 +10,9 @@ class DrawingBoardService {
     this._canvas.width = stage.width();
     this._canvas.height = stage.height();
     var context = this._canvas.getContext('2d');
-    context.strokeStyle = "#df4b26";
     context.lineJoin = "round";
-    context.lineWidth = 5;
+    context.strokeStyle = paintProps.color;
+    context.lineWidth = paintProps.lineWidth;
     this._context = context;
     var image = new Konva.Image({
       image: this._canvas,
@@ -81,6 +81,15 @@ class DrawingBoardService {
   getDrawingData() {
     return {
       image: this._canvas.toDataURL()
+    }
+  }
+
+  updatePaintProps(newPaintProps) {
+    if(newPaintProps.color){
+      this._context.strokeStyle = newPaintProps.color;
+    }
+    if(newPaintProps.lineWidth){
+      this._context.lineWidth = newPaintProps.lineWidth;
     }
   }
 

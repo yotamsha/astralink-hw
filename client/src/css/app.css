@@ -87,8 +87,15 @@ $layout-breakpoint-xs: 600px !default;
   .top-nav-bar .top-bar-right {
     float: right; }
 
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
 .drawing-board-page .drawing-board {
-  border: 1px solid #000000; }
+  background-color: #ffffff;
+  border-radius: 10px; }
+@media (max-width: 767px) {
+  .drawing-board-page .drawing-board {
+    margin: 0 25px; } }
 
 /*
 $layout-breakpoint-xs: 600px !default;
