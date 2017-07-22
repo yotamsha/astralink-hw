@@ -2,10 +2,11 @@
   "name": "authentication-in-react-apps",
   "version": "1.0.0",
   "description": "",
+  "engines" : { "node" : "4.4.5" },
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd server && npm install",
-    "start": "npm run start-server | npm run bundle",
+    "postinstall": "cd server && npm install && npm run bundle ",
+    "start": "npm run start-server",
     "start-server": "node server/app",
     "bundle": "webpack",
     "bundle-prod": "NODE_ENV=production webpack -p --config ./webpack.production.config.js"
