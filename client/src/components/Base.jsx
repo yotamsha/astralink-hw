@@ -8,9 +8,14 @@ const Base = ({ children }) => (
     <div className="top-nav-bar">
 
       <div className="top-bar-left">
-        <Link to="/">Home</Link> 
+        <Link to="/"
+              className={(location.pathname === '/' ? 'active' : '')}
+        >Drawings</Link> |
 
-        <Link to="/draw">Create Your Own Drawing</Link>
+        <Link to="/draw"
+              className={(location.pathname === '/draw' ? 'active' : '')}
+
+        >Create</Link>
       </div>
     </div>
     <div className="page-container">
