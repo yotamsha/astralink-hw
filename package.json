@@ -5,8 +5,9 @@
   "engines" : { "node" : "4.4.5" },
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run bundle  && cd server && npm install ",
-    "start": "npm run start-server",
+    "postinstall": "cd server && npm install ",
+    "start": "npm run bundle && npm run start-server",
+    "start-dev": "npm run start-server",
     "start-server": "node server/app",
     "bundle": "webpack --display-error-details",
     "bundle-prod": "NODE_ENV=production webpack -p --config ./webpack.production.config.js"
