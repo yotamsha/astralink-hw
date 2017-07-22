@@ -27,7 +27,7 @@ class DrawingBoardService {
     this.bindEvents(this._stage);
     // adapt the stage on any window resize
     window.addEventListener('resize', () => {
-      this.fitStageIntoParentContainer(this._stage, this._originalWidth, this._originalHeight );
+      this.fitStageIntoParentContainer(this._stage);
     });
   }
 
@@ -98,31 +98,22 @@ class DrawingBoardService {
   }
 
 
-  fitStageIntoParentContainer(stage, stageWidth, stageHeight) {
+  fitStageIntoParentContainer(stage) {
     var container = document.querySelector('.drawing-board');
     if (!container){
       return;
     }
 
     // now we need to fit stage into parent
-    var containerWidth = container.offsetWidth;
-    var containerHeight = container.offsetHeight;
+    let containerWidth = container.offsetWidth;
     // to do this we need to scale the stage
-/*    if (!stageWidth){
-      stageWidth = containerWidth - 50;
-      stageHeight = containerHeight / 2;
-      stage.width(stageWidth );
-      stage.height(stageHeight);
-    } else {
-      var scale = containerWidth / stageWidth;
-      stage.width(stageWidth * scale);
-      stage.height(stageHeight * scale);
-      stage.scale({ x: scale, y: scale });
-    }*/
-    stageWidth = containerWidth - 50;
-    stageHeight = containerHeight / 2;
-    stage.width(stageWidth );
+    let stageWidth = containerWidth - 50;
+    let stageHeight = (containerWidth - 50) *0.75;
+    //let scale = stageWidth / stage.width();
+    stage.width(stageWidth);
     stage.height(stageHeight);
+    //stage.scale({ x: scale, y: scale });
+
     console.log("stage.width: ",stage.width());
     console.log("stage.height(): ", stage.height());
     //console.log("scale: ", scale);

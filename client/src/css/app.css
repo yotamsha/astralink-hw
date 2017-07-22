@@ -128,4 +128,18 @@ $layout-breakpoint-xs: 600px !default;
   .drawings-list-page .drawings-list ul .list-item {
     width: 100%; } }
 
+/*
+$layout-breakpoint-xs: 600px !default;
+*/
+.drawing-view-page .drawing-preview {
+  width: 100%; }
+  .drawing-view-page .drawing-preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #ffffff; }
+@media (max-width: 767px) {
+  .drawing-view-page .drawing-preview {
+    padding: 15px; } }
+
 /*# sourceMappingURL=app.css.map */

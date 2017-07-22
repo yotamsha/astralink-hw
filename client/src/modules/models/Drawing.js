@@ -8,8 +8,14 @@ class Drawing {
   static getAll(){
     return axios.get(BASE_SERVER_URL + MODEL_PATH)
       .then(res => {
-        const drawings = res.data;
-        return drawings;
+        return res.data;
+      });
+  }
+
+  static getById(id){
+    return axios.get(BASE_SERVER_URL + MODEL_PATH + '/' + id)
+      .then(res => {
+        return res.data;
       });
 
   }
