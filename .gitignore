@@ -1,6 +1,10 @@
 node_modules
 .DS_Store
 *.swp
+*.css.map
+*.css
 .idea
 client/dist/
+
+!app.css
 

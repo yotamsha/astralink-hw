@@ -23,7 +23,6 @@ class DrawingsListPage extends React.Component {
   componentDidMount() {
     var _this = this;
     Drawing.getAll().then(function (data) {
-      console.log("drawings: " ,data);
       _this.setState({
         drawings: data
       });

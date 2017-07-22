@@ -42,9 +42,10 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-/*  'get /': {
+  'get /*': {
     controller: 'index',
     action: 'index',
-    skipAssets: true
-  }*/
+    skipAssets: true,
+    skipRegex: /^\/api\/.*$/
+  }
 };

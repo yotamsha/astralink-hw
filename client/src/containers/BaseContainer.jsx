@@ -21,14 +21,6 @@ class BaseContainer extends React.Component {
    */
   componentDidMount() {
     var _this = this;
-/*    User.getInfo().then(function (data) {
-      if (data){
-        _this.setState({
-          user: data.user
-        });
-      }
-
-    });*/
   }
 
   /**

@@ -49,10 +49,8 @@ class DrawingBoardService {
     }
   }
 
-  onMouseUp(stage) {
+  onMouseUp() {
     this._isPaint = false;
-    this.dataURL = this._canvas.toDataURL();
-
   }
 
   onMouseMove(stage) {
