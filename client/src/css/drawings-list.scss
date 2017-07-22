@@ -18,7 +18,7 @@
         transition-property: transform;
 
         &:hover {
-          opacity: 1 !important; /* must use important because of the dynamically generated opacity.*/
+          background-color: #ffffff !important; /* must use important because of the dynamically generated property.*/
           transform: scale(1.02);
         }
         background-color: #ffffff;

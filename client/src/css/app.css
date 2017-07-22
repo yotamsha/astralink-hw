@@ -153,8 +153,8 @@ $layout-breakpoint-xs: 600px !default;
     transition-property: transform;
     background-color: #ffffff; }
     .drawings-list-page .drawings-list ul .list-item:hover {
-      opacity: 1 !important;
-      /* must use important because of the dynamically generated opacity.*/
+      background-color: #ffffff !important;
+      /* must use important because of the dynamically generated property.*/
       transform: scale(1.02); }
     .drawings-list-page .drawings-list ul .list-item .drawing-preview {
       width: 100%;
