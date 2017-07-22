@@ -32,9 +32,8 @@ class DrawingBoardPage extends React.Component {
 
   saveDrawing() {
     let _this = this;
-    let drawing = Object.assign({},_this.state.drawing, {
-      image: _drawingBoardService.getDrawingData().image
-    });
+    _drawingBoardService.stopDrawingTime();
+    let drawing = Object.assign({},_this.state.drawing, _drawingBoardService.getDrawingData());
     Drawing.save(drawing).then(function(result){
       _this.setState({
         drawing: result

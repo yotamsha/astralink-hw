@@ -45,20 +45,20 @@ class DrawingBoardService {
   }
 
   onMouseDown(stage) {
-    console.log("mousedown: ", stage.getPointerPosition());
     this._lastPointerPosition = stage.getPointerPosition();
     this._isPaint = true;
+    if (!this._startTime){
+      this._startTime = new Date();
+    }
   }
 
   onMouseUp(stage) {
-    console.log("onMouseUp: ", stage.getPointerPosition());
     this._isPaint = false;
     this.dataURL = this._canvas.toDataURL();
 
   }
 
   onMouseMove(stage) {
-    // console.log("onMouseMove: ", stage.getPointerPosition());
     if (!this._isPaint) {
       return;
     }
@@ -82,8 +82,13 @@ class DrawingBoardService {
     this._layer.draw();
   }
 
+  stopDrawingTime() {
+    this._totalDrawingTime = (new Date().getTime() - this._startTime.getTime()) / 1000;
+  }
+
   getDrawingData() {
     return {
+      durationInSecs: this._totalDrawingTime,
       image: this._canvas.toDataURL()
     }
   }
