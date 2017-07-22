@@ -20,6 +20,10 @@ class DrawingBoardPage extends React.Component {
       drawing : {},
       paintProps: defaultPaintProps
     };
+
+    //this.state.dimensions = {800, 600}
+    //this.fitStageIntoParentContainer(this._stage, this._originalWidth, this._originalHeight);
+
     this.onReady = function(stage){
       _drawingBoardService = new DrawingBoardService(stage, defaultPaintProps);
     }
@@ -54,7 +58,6 @@ class DrawingBoardPage extends React.Component {
           onSave={this.saveDrawing}
           paintProps={this.state.paintProps}
           paintPropsChanged={this.paintPropsChanged}
-
         />
       </div>
     );

@@ -1,8 +1,12 @@
 @import "responsive";
 .drawing-board-page {
   .drawing-board {
-    background-color: #ffffff;
-    border-radius: 10px;
+    width: 100%;
+    height: 400px;
+    .konvajs-content {
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
   }
   @include media-max($layout-breakpoint-sm) {
     .drawing-board {

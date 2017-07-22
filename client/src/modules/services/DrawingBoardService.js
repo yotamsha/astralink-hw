@@ -1,33 +1,37 @@
-
 class DrawingBoardService {
 
   constructor(stage, paintProps) {
     console.log("initializing service");
-
+    this._stage = stage;
+    this.fitStageIntoParentContainer(this._stage);
     this._layer = new Konva.Layer();
-    stage.add(this._layer);
+    this._stage.add(this._layer);
     this._canvas = document.createElement('canvas');
-    this._canvas.width = stage.width();
-    this._canvas.height = stage.height();
+    this._originalWidth = this._stage.width();
+    this._originalHeight = this._stage.height();
+    this._canvas.width = this._stage.width();
+    this._canvas.height = this._stage.height();
     var context = this._canvas.getContext('2d');
     context.lineJoin = "round";
     context.strokeStyle = paintProps.color;
     context.lineWidth = paintProps.lineWidth;
     this._context = context;
-    var image = new Konva.Image({
+    this._image = new Konva.Image({
       image: this._canvas,
       x: 0,
       y: 0
     });
-    this._layer.add(image);
-    stage.draw();
+    this._layer.add(this._image);
+    this._stage.draw();
 
-    this.bindEvents(stage)
+    this.bindEvents(this._stage);
+    // adapt the stage on any window resize
+    window.addEventListener('resize', () => {
+      this.fitStageIntoParentContainer(this._stage, this._originalWidth, this._originalHeight );
+    });
   }
-  init(stage) {
 
-  }
-  bindEvents(stage){
+  bindEvents(stage) {
     let self = this;
     stage.on('contentMousedown.proto contentTouchstart', function () {
       self.onMouseDown(stage);
@@ -85,13 +89,48 @@ class DrawingBoardService {
   }
 
   updatePaintProps(newPaintProps) {
-    if(newPaintProps.color){
+    if (newPaintProps.color) {
       this._context.strokeStyle = newPaintProps.color;
     }
-    if(newPaintProps.lineWidth){
+    if (newPaintProps.lineWidth) {
       this._context.lineWidth = newPaintProps.lineWidth;
     }
   }
+
+
+  fitStageIntoParentContainer(stage, stageWidth, stageHeight) {
+    var container = document.querySelector('.drawing-board');
+    if (!container){
+      return;
+    }
+
+    // now we need to fit stage into parent
+    var containerWidth = container.offsetWidth;
+    var containerHeight = container.offsetHeight;
+    // to do this we need to scale the stage
+/*    if (!stageWidth){
+      stageWidth = containerWidth - 50;
+      stageHeight = containerHeight / 2;
+      stage.width(stageWidth );
+      stage.height(stageHeight);
+    } else {
+      var scale = containerWidth / stageWidth;
+      stage.width(stageWidth * scale);
+      stage.height(stageHeight * scale);
+      stage.scale({ x: scale, y: scale });
+    }*/
+    stageWidth = containerWidth - 50;
+    stageHeight = containerHeight / 2;
+    stage.width(stageWidth );
+    stage.height(stageHeight);
+    console.log("stage.width: ",stage.width());
+    console.log("stage.height(): ", stage.height());
+    //console.log("scale: ", scale);
+
+    // this._layer.draw();
+    stage.draw();
+  }
+
 
 }
 
