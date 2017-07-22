@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
 
-console.log('sasaddsasfdssfdfds');
 const Base = ({ children }) => (
   <div>
     <div className="top-nav-bar">
