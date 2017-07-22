@@ -7,15 +7,12 @@ class DrawingBoardService {
     this._layer = new Konva.Layer();
     this._stage.add(this._layer);
     this._canvas = document.createElement('canvas');
-    this._originalWidth = this._stage.width();
-    this._originalHeight = this._stage.height();
     this._canvas.width = this._stage.width();
     this._canvas.height = this._stage.height();
     var context = this._canvas.getContext('2d');
-    context.lineJoin = "round";
-    context.strokeStyle = paintProps.color;
-    context.lineWidth = paintProps.lineWidth;
     this._context = context;
+    this._context.lineJoin = "round";
+    this.updatePaintProps(paintProps);
     this._image = new Konva.Image({
       image: this._canvas,
       x: 0,
@@ -62,7 +59,6 @@ class DrawingBoardService {
     if (!this._isPaint) {
       return;
     }
-    this._context.globalCompositeOperation = 'source-over';
 
     this._context.beginPath();
     let localPos = {
@@ -99,6 +95,14 @@ class DrawingBoardService {
     }
     if (newPaintProps.lineWidth) {
       this._context.lineWidth = newPaintProps.lineWidth;
+    }
+    if (newPaintProps.mode){
+      if (newPaintProps.mode === 'brush') {
+        this._context.globalCompositeOperation = 'source-over';
+      }
+      if (newPaintProps.mode === 'eraser') {
+        this._context.globalCompositeOperation = 'destination-out';
+      }
     }
   }
 

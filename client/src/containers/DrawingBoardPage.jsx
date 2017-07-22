@@ -14,7 +14,8 @@ class DrawingBoardPage extends React.Component {
     // set the initial component state
     const defaultPaintProps = {
       color: '#000000',
-      lineWidth : 5
+      lineWidth : 5,
+      mode: 'brush'
     };
     this.state = {
       drawing : {},
@@ -30,10 +31,11 @@ class DrawingBoardPage extends React.Component {
     this.saveDrawing = this.saveDrawing.bind(this);
   }
 
-  saveDrawing() {
+  saveDrawing(saveMode) {
     let _this = this;
     _drawingBoardService.stopDrawingTime();
     let drawing = Object.assign({},_this.state.drawing, _drawingBoardService.getDrawingData());
+    drawing.saveMode = saveMode;
     Drawing.save(drawing).then(function(result){
       _this.setState({
         drawing: result
