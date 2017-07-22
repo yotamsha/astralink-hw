@@ -1,5 +1,5 @@
 const Consts = {
-  
+  API_PREFIX: '/api/',
   BRUSH_MODES : {
     BRUSH : 'brush',
     ERASER : 'eraser',

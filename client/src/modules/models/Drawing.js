@@ -1,12 +1,12 @@
 import axios from 'axios';
+import Consts from '../services/Consts';
 
-const BASE_SERVER_URL = 'http://localhost:1337/api/';
 const MODEL_PATH = 'drawings';
 
 class Drawing {
 
   static getAll(){
-    return axios.get(BASE_SERVER_URL + MODEL_PATH)
+    return axios.get(Consts.API_PREFIX + MODEL_PATH)
       .then(res => {
         return res.data;
       });
