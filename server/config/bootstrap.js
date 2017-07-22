@@ -9,7 +9,10 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 
+var express = require('express');
+
 module.exports.bootstrap = function(cb) {
+  // sails.hooks.http.app.use(express.static(process.cwd() + '/../client/dist'));
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)

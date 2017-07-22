@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --use-strict index.js",
-    "bundle": "webpack"
+    "start": "node server/app",
+    "bundle": "webpack",
+    "bundle-prod": "NODE_ENV=production webpack -p --config ./webpack.production.config.js"
   },
   "author": "Yotam Shalev",
   "license": "MIT",
