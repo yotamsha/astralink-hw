@@ -19,7 +19,7 @@
         npm run bundle
         
   *  Now, in another command window, run:
-        
+  
         npm run start-server
   
   * Open your browser at http://localhost:1337
