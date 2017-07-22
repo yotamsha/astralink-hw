@@ -1,5 +1,48 @@
 @import "responsive";
 .drawing-board-page {
+  .panel {
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    display: table;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  .control-panel {
+    .panel-section {
+      width: 33.33%;
+      padding: 10px;
+      float: left;
+      height: 150px;
+      label {
+        float: left;
+        padding-bottom: 10px;
+        font-size: 14px;
+        color: #696969;
+        width: 100%;
+        text-align: left;
+      }
+      .icon-button  {
+        padding: 5px 0px;
+        margin: 0px;
+        min-width: 40px;
+        height: 40px;
+        &.active {
+          background-color: rgba(255, 255, 255, 0.33);
+        }
+      }
+    }
+  }
+  .actions-panel {
+    text-align: right;
+    .link-cont {
+      display: block;
+      float: left;
+      word-break: break-all;
+      text-align: left;
+    }
+  }
   .drawing-board {
     width: 100%;
     height: 400px;
@@ -9,8 +52,11 @@
     }
   }
   @include media-max($layout-breakpoint-sm) {
-    .drawing-board {
-      margin: 0 25px;
+    .control-panel {
+      .panel-section {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

@@ -79,7 +79,11 @@ class DrawingBoardService {
   }
 
   stopDrawingTime() {
-    this._totalDrawingTime = (new Date().getTime() - this._startTime.getTime()) / 1000;
+    if (!this._startTime){
+      this._totalDrawingTime = 0;
+    } else {
+      this._totalDrawingTime = (new Date().getTime() - this._startTime.getTime()) / 1000;
+    }
   }
 
   getDrawingData() {
@@ -112,22 +116,17 @@ class DrawingBoardService {
     if (!container){
       return;
     }
-
     // now we need to fit stage into parent
     let containerWidth = container.offsetWidth;
     // to do this we need to scale the stage
-    let stageWidth = containerWidth - 50;
-    let stageHeight = (containerWidth - 50) *0.75;
+    let stageWidth = containerWidth;
+    let stageHeight = (containerWidth) *0.75;
     //let scale = stageWidth / stage.width();
     stage.width(stageWidth);
     stage.height(stageHeight);
+
     //stage.scale({ x: scale, y: scale });
 
-    console.log("stage.width: ",stage.width());
-    console.log("stage.height(): ", stage.height());
-    //console.log("scale: ", scale);
-
-    // this._layer.draw();
     stage.draw();
   }
 

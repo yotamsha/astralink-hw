@@ -14,22 +14,20 @@ body {
 * {
   box-sizing: border-box; }
 
-/*
-a {
-  color: #00bcd4;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.4s;
-}
+button {
+  background-color: transparent;
+  color: #696969;
+  border: 0;
+  padding: 5px;
+  min-width: 50px;
+  margin: 0px 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer; }
 
-a:hover {
-  color: #1976d2;
-}
+.hide-element {
+  display: none !important; }
 
-.text-center {
-  text-align: center;
-}
-*/
 .card-2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
@@ -90,6 +88,40 @@ $layout-breakpoint-xs: 600px !default;
 /*
 $layout-breakpoint-xs: 600px !default;
 */
+.drawing-board-page .panel {
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  display: table;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  padding: 10px; }
+.drawing-board-page .control-panel .panel-section {
+  width: 33.33%;
+  padding: 10px;
+  float: left;
+  height: 150px; }
+  .drawing-board-page .control-panel .panel-section label {
+    float: left;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #696969;
+    width: 100%;
+    text-align: left; }
+  .drawing-board-page .control-panel .panel-section .icon-button {
+    padding: 5px 0px;
+    margin: 0px;
+    min-width: 40px;
+    height: 40px; }
+    .drawing-board-page .control-panel .panel-section .icon-button.active {
+      background-color: rgba(255, 255, 255, 0.33); }
+.drawing-board-page .actions-panel {
+  text-align: right; }
+  .drawing-board-page .actions-panel .link-cont {
+    display: block;
+    float: left;
+    word-break: break-all;
+    text-align: left; }
 .drawing-board-page .drawing-board {
   width: 100%;
   height: 400px; }
@@ -97,8 +129,9 @@ $layout-breakpoint-xs: 600px !default;
     background-color: #ffffff;
     border-radius: 10px; }
 @media (max-width: 767px) {
-  .drawing-board-page .drawing-board {
-    margin: 0 25px; } }
+  .drawing-board-page .control-panel .panel-section {
+    width: 100%;
+    height: auto; } }
 
 /*
 $layout-breakpoint-xs: 600px !default;

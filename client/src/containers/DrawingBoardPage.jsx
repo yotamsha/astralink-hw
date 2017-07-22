@@ -21,14 +21,11 @@ class DrawingBoardPage extends React.Component {
       drawing : {},
       paintProps: defaultPaintProps
     };
-
-    //this.state.dimensions = {800, 600}
-    //this.fitStageIntoParentContainer(this._stage, this._originalWidth, this._originalHeight);
-
     this.onReady = function(stage){
       _drawingBoardService = new DrawingBoardService(stage, defaultPaintProps);
     }
     this.saveDrawing = this.saveDrawing.bind(this);
+    this.paintPropsChanged = this.paintPropsChanged.bind(this);
   }
 
   saveDrawing(saveMode) {
@@ -44,7 +41,11 @@ class DrawingBoardPage extends React.Component {
   }
 
   paintPropsChanged(newPaintProps) {
+    let _this = this;
     _drawingBoardService.updatePaintProps(newPaintProps);
+    _this.setState({
+      paintProps: newPaintProps
+    });
   }
 
 
@@ -59,6 +60,7 @@ class DrawingBoardPage extends React.Component {
           onSave={this.saveDrawing}
           paintProps={this.state.paintProps}
           paintPropsChanged={this.paintPropsChanged}
+          drawing={this.state.drawing}
         />
       </div>
     );
