@@ -18,7 +18,7 @@
             
         npm run bundle
         
-  *  Now, in another command window, run:
+  * Now, in another command window, run:
   
         npm run start-server
   
