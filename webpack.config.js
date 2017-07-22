@@ -1,5 +1,6 @@
 const path = require('path');
 
+var watch = process.env.NODE_ENV !== 'production' ;
 
 module.exports = {
   // the entry file for the bundle
@@ -25,5 +26,5 @@ module.exports = {
   },
 
   // start Webpack in a watch mode, so Webpack will rebuild the bundle on changes
-  watch: true
+  watch: watch
 };

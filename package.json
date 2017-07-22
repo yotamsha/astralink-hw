@@ -5,7 +5,7 @@
   "engines" : { "node" : "4.4.5" },
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd server && npm install && npm run bundle ",
+    "postinstall": "npm run bundle && cd server && npm install ",
     "start": "npm run start-server",
     "start-server": "node server/app",
     "bundle": "webpack",
