@@ -44,7 +44,7 @@ class DrawingBoardPage extends React.Component {
     let _this = this;
     _drawingBoardService.updatePaintProps(newPaintProps);
     _this.setState({
-      paintProps: newPaintProps
+      paintProps: Object.assign({},this.state.paintProps,newPaintProps)
     });
   }
 
